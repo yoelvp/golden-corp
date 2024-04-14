@@ -5,19 +5,31 @@ import logo from "../../assets/logo.svg";
 
 <header class="flex items-center justify-between">
   <a href="/">
-    <Image
-      src={logo}
-      alt="logo"
-      style={{ filter: "grayscale(100%) contrast(200%)" }}
-    />
+    <Image src={logo} alt="logo" class="w-24" />
   </a>
 
-  <ul>
+  <button>
+    
+  </button>
+
+  <ul class="hidden lg:flex">
     <li>
       <a href="/">Inicio</a>
     </li>
     <li>
-      <a href="/">Proyectos</a>
+      <a href="/conocenos">Conócenos</a>
+    </li>
+    <li>
+      <a href="/servicios">Servicios</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="/proyectos">Proyectos</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="/contacto">Contacto</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="/intranet">Intranet</a>
     </li>
   </ul>
 </header>
