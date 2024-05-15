@@ -1,24 +1,80 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../../assets/logo.svg";
+import { Image } from "astro:assets"
+import logo from "../../assets/logo.svg"
+import { pages } from "../../constants/pages"
+import HamburguerMenu from './HamburgerMenu.astro'
+
+const { pathname } = Astro.url
+const normalizedPathName =
+  pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
+
+const currentPages = pages.map((page) => ({
+  ...page,
+  isActive: normalizedPathName === page.href,
+}))
 ---
 
-<header class="flex items-center justify-between">
-  <a href="/">
-    <Image
-      src={logo}
-      alt="logo"
-      style={{ filter: "grayscale(100%) contrast(200%)" }}
-      class="w-24"
-    />
+<header class="h-16 flex items-center justify-between bg-primary px-4">
+  <a href="/" class="rounded bg-white">
+    <Image src={logo} alt="logo" class="h-10 w-auto" />
   </a>
 
-  <ul>
-    <li>
-      <a href="/">Inicio</a>
-    </li>
-    <li>
-      <a href="/">Proyectos</a>
-    </li>
-  </ul>
+  <HamburguerMenu class:list={"block lg:hidden"} id="menuButton" />
+
+  <nav class="hidden items-center justify-center md:flex">
+    {currentPages.map((page) => (
+      <a
+        href={page.href}
+        rel="noopener noreferrer"
+        class="px-4 uppercase text-white transition-colors hover:text-secondary"
+        class:list={[{ "text-secondary": page.isActive }]}
+      >
+        {page.name}
+      </a>
+    ))}
+  </nav>
+
+  <nav id="navMobile" class="open-menu hidden ">
+    <div class="h-16 flex justify-end items-center">
+      <button>
+      </button>
+    </div>
+    {currentPages.map((page) => (
+      <a
+        href={page.href}
+        rel="noopener noreferrer"
+        class="px-4 uppercase text-white transition-colors"
+        class:list={[{ "text-secondary": page.isActive }]}
+      >
+        {page.name}
+      </a>
+    ))}
+  </nav>
 </header>
+
+<style>
+.open-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<script>
+import { $ } from "@/lib/dom-selector";
+
+const menuButton = $("#menu")
+const navMobile = $("#navMobile")
+
+menuButton?.addEventListener('click', () => {
+  navMobile?.classList.toggle("hidden")
+  navMobile?.classList.toggle("flex")
+})
+</script>
