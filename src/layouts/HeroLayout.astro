@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string
+  description: string
+  imageUrl: string
+  titleClassName?: string
+  descriptionClassName?: string
+  containerClassName?: string
+  contentClassName?: string
+}
+
+const {
+  title,
+  titleClassName,
+  description,
+  descriptionClassName,
+  imageUrl,
+  containerClassName,
+  contentClassName
+} = Astro.props
+---
+
+<div
+  class="wrapper relative px-6 flex flex-col justify-end md:px-16"
+  class:list={[
+    containerClassName
+  ]}
+  style={`background-image:url(${imageUrl});`}
+>
+  <div class="section-layout z-10" class:list={[ contentClassName ]}>
+    <h1 class="text-xl text-white mb-2 font-bold lg:text-2xl" class:list={[ titleClassName ]}>
+      {title}
+    </h1>
+    <p class="text-white text-lg lg:text-xl" class:list={[ descriptionClassName ]}>
+      {description}
+    </p>
+  </div>
+  <div class="absolute top-0 left-0 w-full h-full bg-primary/65"></div>
+</div>
+
+<style>
+.wrapper {
+  width: 100%;
+  min-height: 580px;
+  background-size: cover;
+  object-position: center;
+}
+</style>
