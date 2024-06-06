@@ -1,7 +1,69 @@
 ---
 import Layout from "../layouts/Layout.astro"
+
+const personal = [
+  {
+    serviceName: 'Nombre del servicio',
+    content: 'Ing. Industrial'
+  },
+  {
+    serviceName: 'Nombre del servicio 02',
+    content: 'Ing. Civil'
+  },
+  {
+    serviceName: 'Nombre del servicio 03',
+    content: 'CEO en Google'
+  },
+  {
+    serviceName: 'Nombre del servicio 04',
+    content: 'Fullstack Developer'
+  }
+]
 ---
 
 <Layout title="Servicios - Grupo Corporativo Golden">
-  <h1>Servicios</h1>
+  <div class="swiper services-scroll">
+    <div class="swiper-wrapper w-full">
+      {personal.map((p) => (
+        <div
+          class="swiper-slide w-full"
+          style="background-image:url('https://rds.org.co/apc-aa-files/205ec78c9cca6d1850bdca24e20e50bf/mina_de_oro.jpg');background-position:center;background-size:cover;"
+        >
+          <div class="w-full h-full py-8 flex flex-col justify-center items-center">
+            <div class="w-[90%] h-full bg-secondary/40 text-white rounded-md p-4 flex flex-col justify-center items-center">
+              <h4 class="text-xl font-bold uppercase">
+                {p.serviceName}
+              </h4>
+              <p>
+                {p.content}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 </Layout>
+
+<script>
+import Swiper from "swiper"
+import { Navigation, Pagination} from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+Swiper.use([ Navigation, Pagination ])
+new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+})
+</script>
