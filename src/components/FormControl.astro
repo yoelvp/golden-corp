@@ -1,0 +1,18 @@
+---
+import Input from './Input.astro'
+
+interface Props {
+  placeholder: string
+  label: string
+  htmlFor: string
+}
+
+const { placeholder, label, htmlFor } = Astro.props
+---
+
+<div class="w-full grid grid-cols-5">
+  <label for={htmlFor} class="col-span-1">
+    {label}
+  </label>
+  <Input placeholder={placeholder} className="col-span-4" />
+</div>
