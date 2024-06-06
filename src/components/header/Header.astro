@@ -14,12 +14,12 @@ const currentPages = pages.map((page) => ({
 }))
 ---
 
-<header class="h-16 flex items-center justify-between bg-primary px-4">
+<header class="fixed top-0 left-0 z-[100] w-full h-16 flex items-center justify-between bg-primary px-4 border-b border-slate-700">
   <a href="/" class="rounded bg-white">
     <Image src={logo} alt="logo" class="h-10 w-auto" />
   </a>
 
-  <HamburguerMenu class:list={"block lg:hidden"} id="menuButton" />
+  <HamburguerMenu id="menuButton" />
 
   <nav class="hidden items-center justify-center md:flex">
     {currentPages.map((page) => (
@@ -34,7 +34,7 @@ const currentPages = pages.map((page) => ({
     ))}
   </nav>
 
-  <nav id="navMobile" class="open-menu hidden ">
+  <nav id="navMobile" class="open-menu hidden">
     <div class="h-16 flex justify-end items-center">
       <button>
       </button>

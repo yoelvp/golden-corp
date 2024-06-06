@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '@/layouts/Layout.astro'
+import SectionLayout from '@/layouts/SectionLayout.astro'
+import FormControl from '@/components/FormControl.astro'
+import logo from '../assets/logo.svg'
+import Location from '@/icons/Location.astro'
+import Email from '@/icons/Email.astro'
+---
+
+<Layout title="Contacto - Grupo Corporativo Golden">
+  <SectionLayout containerClassName="my-8" contentClassName="bg-primary rounded-md px-8 text-white">
+    <h2 class="text-xl lg:text-2xl uppercase font-bold text-white mb-4">
+      Contáctanos
+    </h2>
+    <form action="" class="flex justify-center gap-8">
+      <div class="w-full flex flex-col gap-4">
+        <FormControl
+          label="Asunto"
+          htmlFor="subject"
+          placeholder="Asunto"
+        />
+        <FormControl
+          label="Nombre"
+          htmlFor="name"
+          placeholder="Nombre"
+        />
+        <FormControl
+          label="Empresa"
+          htmlFor="business"
+          placeholder="Empresa"
+        />
+        <FormControl
+          label="Cargo"
+          htmlFor="position"
+          placeholder="Cargo"
+        />
+        <FormControl
+          label="Email"
+          htmlFor="email"
+          placeholder="Email"
+        />
+        <FormControl
+          label="Teléfono"
+          htmlFor="phone"
+          placeholder="Teléfono"
+        />
+      </div>
+
+      <div class="w-full">
+        <div>
+          <label for="message">
+            Mensaje
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Mensaje"
+            class="px-4 py-1 rounded-md w-full"
+          ></textarea>
+        </div>
+        <button class="w-full bg-secondary rounded-md px-6 py-1 uppercase mt-4">
+          Enviar
+        </button>
+      </div>
+    </form>
+  </SectionLayout>
+
+  <SectionLayout contentClassName="flex justify-between items-start gap-x-16">
+    <div>
+      <h3 class="mb-4 uppercase font-bold text-xl lg:text-2xl">
+        Grupo Corporativo Golden
+      </h3>
+      <div class="flex flex-wrap gap-x-8 gap-y-4">
+        <div class="flex items-center gap-2">
+          <span class="bg-secondary w-8 h-8 rounded-full flex justify-center items-center">
+            <Location className="text-white" />
+          </span>
+          Jr. Direccion oficina 22
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-secondary w-8 h-8 rounded-full flex justify-center items-center">
+            <Location className="text-white" />
+          </span>
+          +51 999888777
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-secondary w-8 h-8 rounded-full flex justify-center items-center">
+            <Email className="text-white" />
+          </span>
+          recepcion@golden.pe
+        </div>
+      </div>
+    </div>
+    <Image
+      src={logo}
+      alt="logo grupo corporativo golden"
+      class="w-auto h-64 object-cover object-center"
+    />
+  </SectionLayout>
+</Layout>

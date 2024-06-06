@@ -14,15 +14,15 @@ export const pages: Page[] = [
     href: '/servicios'
   },
   {
-    name: 'Proyectos',
-    href: '/proyectos'
+    name: 'Empleos',
+    href: '/empleos'
   },
   {
-    name: 'Contacto',
-    href: '/proyectos'
+    name: 'Blog',
+    href: '/blog'
   },
   {
-    name: 'Proyectos',
-    href: '/proyectos'
+    name: 'Contácto',
+    href: '/contacto'
   }
 ]

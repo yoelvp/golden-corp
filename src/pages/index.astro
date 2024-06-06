@@ -1,39 +1,78 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import { Image } from "astro:assets"
+import historyImage from "@/assets/images/history.jpg"
+import Heading2 from "@/components/Heading2.astro"
+import HeroLayout from "@/layouts/HeroLayout.astro"
+import Layout from "@/layouts/Layout.astro"
+import SectionLayout from "@/layouts/SectionLayout.astro"
 ---
 
 <Layout title="Grupo Corporativo Golden">
-  <div class="wrapper relative px-12 flex flex-col justify-end">
-    <div class="z-10 mb-6">
-      <h1 class="text-2xl text-white mb-2 font-bold">
-        ¡Bienvenidos a Grupo Corporativo Golden!
-      </h1>
-      <p class="text-white text-2xl">
-        Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!
-      </p>
-    </div>
-    <div class="absolute top-0 left-0 w-full h-full bg-[#021C3F]/55"></div>
-  </div>
+  <HeroLayout
+    title="¡Bienvenidos a Grupo Corporativo Golden!"
+    description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
+    imageUrl="../../src/assets/images/home.jpg"
+    contentClassName="mb-16"
+  />
 
-  <section>
-    <img src="https://via.placeholder.com/600/" alt="image" />
-    <div>
-      <h2>
-        Pequeña reseña histórica
-      </h2>
+  <SectionLayout contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
+    <Image
+      src={historyImage}
+      alt="image"
+      class="h-64 w-full rounded border border-zinc-400 object-cover object-center lg:h-auto lg:w-96"
+    />
+    <div class="mb-4">
+      <Heading2> Pequeña reseña histórica </Heading2>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, aperiam magni quasi quos ullam atque a deserunt cumque at nesciunt! Voluptatibus repudiandae beatae sequi impedit dolorum vero et aperiam atque.
+        El Grupo Corporativo Golden fue fundado en 0000 con el objetivo de aprovechar los recursos minerales de La Arena, comenzando con la extracción de oro en La Arena. En la década de 0000.
+      </p>
+      <br />
+      <p>
+        Desde 0000, el Grupo Corporativo Golden ha centrado sus esfuerzos en la sostenibilidad y la responsabilidad social, invirtiendo en proyectos de reforestación, reciclaje de agua y tecnologías de minería verde. Hoy en día, se destaca por su innovación en el sector minero y su compromiso con el desarrollo socioeconómico de las comunidades locales, consolidándose como un líder en la industria minera de Huamachuco.
       </p>
     </div>
-  </section>
-</Layout>
+  </SectionLayout>
 
-<style>
-  .wrapper {
-    width: 100%;
-    height: 580px;
-    background-image: url('../assets/images/home.jpg');
-    background-size: cover;
-    object-fit: cover;
-  }
-</style>
+  <HeroLayout
+    title="Servicios"
+    titleClassName="uppercase"
+    description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
+    imageUrl="../../src/assets/images/home.jpg"
+    containerClassName="lg:h-[800px]"
+    contentClassName="mb-16"
+  />
+
+  <SectionLayout>
+    <Heading2> Proyectos </Heading2>
+    <p>
+      Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones
+      duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar
+      juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!
+    </p>
+  </SectionLayout>
+
+  <SectionLayout containerClassName="bg-primary">
+    <Heading2 className="text-white text-center">
+      Datos estadísticos de logros
+    </Heading2>
+  </SectionLayout>
+
+  <SectionLayout>
+    <div class="grid grid-cols-1 items-center gap-x-8 py-8 md:grid-cols-2">
+      <h2
+        class="mb-4 rounded-xl bg-primary px-4 py-2 text-center text-xl font-bold uppercase text-white lg:text-2xl"
+      >
+        Trabaja con
+        <br />
+        nostros
+      </h2>
+      <figure>
+        <img
+          src="https://via.placeholder.com/600/"
+          alt="imagen trabaja con nosotros"
+          class="h-96 w-full rounded object-cover object-center shadow-lg shadow-zinc-400 md:h-72"
+        />
+      </figure>
+    </div>
+  </SectionLayout>
+</Layout>

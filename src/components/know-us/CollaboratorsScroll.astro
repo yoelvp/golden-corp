@@ -1,0 +1,120 @@
+---
+import SectionLayout from "@/layouts/SectionLayout.astro"
+import Heading2 from "../Heading2.astro"
+
+const personal = [
+  {
+    imageUrl: 'https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d',
+    names: 'Carlos Rojas',
+    position: 'Ing. Industrial'
+  },
+  {
+    imageUrl: 'https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d',
+    names: 'Marco Polo',
+    position: 'Ing. Civil'
+  },
+  {
+    imageUrl: 'https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d',
+    names: 'Pedro Picapiedra',
+    position: 'CEO en Google'
+  },
+  {
+    imageUrl: 'https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d',
+    names: 'Yhenson Gervacio',
+    position: 'Fullstack Developer'
+  }
+]
+---
+
+<SectionLayout
+  containerClassName="bg-primary border-b border-b-slate-600"
+  contentClassName="flex flex-col gap-y-32"
+>
+  <div>
+    <Heading2 className="text-white text-center mb-8">
+      Nuestro directorio
+    </Heading2>
+    <div class="swiper directory-swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        {personal.map((p) => (
+          <div class="swiper-slide">
+            <div class="w-full flex flex-col justify-center items-center gap-4">
+              <img
+                src={p.imageUrl}
+                alt="profile"
+                class="w-48 h-48 rounded-full"
+              >
+              <div class="flex flex-col justify-center items-center text-white">
+                <h4 class="text-lg font-bold">
+                  {p.names}
+                </h4>
+                <p>
+                  {p.position}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <div>
+    <Heading2 className="text-white text-center mb-8">
+      Nuestro equipo de trabajo
+    </Heading2>
+    <div class="swiper work-team-swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        {personal.map((p) => (
+          <div class="swiper-slide">
+            <div class="w-full flex flex-col justify-center items-center gap-4">
+              <img
+                src={p.imageUrl}
+                alt="profile"
+                class="w-48 h-48 rounded-full"
+              >
+              <div class="flex flex-col justify-center items-center text-white">
+                <h4 class="text-lg font-bold">
+                  {p.names}
+                </h4>
+                <p>
+                  {p.position}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</SectionLayout>
+
+<script>
+import Swiper from "swiper"
+import { Navigation, Pagination} from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+Swiper.use([ Navigation, Pagination ])
+new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: 2,
+  spaceBetween: 32,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+})
+</script>

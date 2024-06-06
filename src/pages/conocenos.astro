@@ -1,7 +1,64 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro"
+import SectionLayout from '@/layouts/SectionLayout.astro'
+import CollaboratorsScroll from '@/components/know-us/CollaboratorsScroll.astro'
+import HeroLayout from "@/layouts/HeroLayout.astro"
+import Heading2 from "@/components/Heading2.astro"
+import historyImage from "@/assets/images/history.jpg"
+import { Image } from "astro:assets"
 ---
 
 <Layout title="Conócenos - Grupo Corporativo Golden">
-  <h1>Conócenos</h1>
+  <HeroLayout
+    title="Quiénes somos"
+    description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
+    imageUrl="../../src/assets/images/home.jpg"
+  />
+
+  <SectionLayout containerClassName="bg-primary" contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
+    <Image
+      src={historyImage}
+      alt="image"
+      class="w-full rounded h-64 object-cover object-center border border-zinc-400 lg:h-auto"
+    />
+    <div class="mb-4 text-white">
+      <Heading2>
+        Pequeña reseña histórica
+      </Heading2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, aperiam magni quasi quos ullam atque a deserunt cumque at nesciunt! Voluptatibus repudiandae beatae sequi impedit dolorum vero et aperiam atque.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, aperiam magni quasi quos ullam atque a deserunt cumque at nesciunt! Voluptatibus repudiandae beatae sequi impedit dolorum vero et aperiam atque.
+      </p>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout contentClassName="py-8 grid lg:grid-cols-3 gap-x-4">
+    <h2 class="text-2xl font-bold uppercase pb-4 lg:col-span-2 lg:text-4xl">
+      Filosofía
+      <br />
+      corporativa
+    </h2>
+    <div class="relative lg:col-start-1 lg:row-start-2">
+      <h4 class="absolute text-white text-2xl font-bold uppercase top-2 left-1/2 -translate-x-1/2">
+        Misión
+      </h4>
+      <img src="https://via.placeholder.com/600/" alt="imagen-referencia" class="h-full object-cover object-center" />
+    </div>
+    <div class="relative lg:col-start-2 lg:row-start-2">
+      <h4 class="absolute text-white text-2xl font-bold uppercase top-2 left-1/2 -translate-x-1/2">
+        Visión
+      </h4>
+      <img src="https://via.placeholder.com/600/" alt="imagen-referencia" />
+    </div>
+    <div class="relative lg:col-start-3 lg:row-start-1 lg:row-span-2">
+      <h4 class="absolute text-white text-2xl font-bold uppercase top-2 left-1/2 -translate-x-1/2">
+        Valores
+      </h4>
+      <img src="https://via.placeholder.com/600/" alt="imagen-referencia" class="h-full object-center object-cover" />
+    </div>
+  </SectionLayout>
+
+  <CollaboratorsScroll />
 </Layout>
