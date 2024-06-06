@@ -1,0 +1,17 @@
+---
+interface Props {
+  placeholder: string
+  className?: string
+}
+
+const { placeholder, className } = Astro.props
+---
+
+<input
+  type="text"
+  placeholder={placeholder}
+  class="w-full px-4 py-1 rounded-md"
+  class:list={[
+    className
+  ]}
+/>
