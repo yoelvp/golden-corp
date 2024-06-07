@@ -15,7 +15,7 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
     contentClassName="mb-16"
   />
 
-  <SectionLayout contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
+  <SectionLayout id="resena-historica" contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
     <Image
       src={historyImage}
       alt="image"
@@ -34,6 +34,7 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
   </SectionLayout>
 
   <HeroLayout
+    id="servicios"
     title="Servicios"
     titleClassName="uppercase"
     description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
@@ -42,7 +43,7 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
     contentClassName="mb-16"
   />
 
-  <SectionLayout>
+  <SectionLayout id="proyectos">
     <Heading2> Proyectos </Heading2>
     <p>
       Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones
@@ -51,7 +52,7 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
     </p>
   </SectionLayout>
 
-  <SectionLayout containerClassName="bg-primary">
+  <SectionLayout containerClassName="bg-primary" id="logros">
     <Heading2 className="text-white text-center">
       Datos estadísticos de logros
     </Heading2>
