@@ -2,12 +2,14 @@
 interface Props {
   contentClassName?: string
   containerClassName?: string
+  id?: string
 }
 
-const { containerClassName, contentClassName } = Astro.props
+const { containerClassName, contentClassName, id } = Astro.props
 ---
 
 <section
+  id={id}
   class:list={[
     containerClassName
   ]}
