@@ -10,12 +10,18 @@ import { Image } from "astro:assets"
 
 <Layout title="Conócenos - Grupo Corporativo Golden">
   <HeroLayout
+    id="quienes-somos"
     title="Quiénes somos"
     description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
     imageUrl="../../src/assets/images/home.jpg"
+    contentClassName="mb-16"
   />
 
-  <SectionLayout containerClassName="bg-primary" contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
+  <SectionLayout
+    id="resena-historica"
+    containerClassName="bg-primary"
+    contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8"
+  >
     <Image
       src={historyImage}
       alt="image"
@@ -34,7 +40,10 @@ import { Image } from "astro:assets"
     </div>
   </SectionLayout>
 
-  <SectionLayout contentClassName="py-8 grid lg:grid-cols-3 gap-x-4">
+  <SectionLayout
+    id="filosofia-corporativa"
+    contentClassName="py-8 grid lg:grid-cols-3 gap-x-4"
+  >
     <h2 class="text-2xl font-bold uppercase pb-4 lg:col-span-2 lg:text-4xl">
       Filosofía
       <br />

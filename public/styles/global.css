@@ -1,3 +1,7 @@
+:root {
+  --secondary: #df242b;
+}
+
 html {
   font-size: 20px;
 }

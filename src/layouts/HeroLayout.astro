@@ -7,6 +7,7 @@ interface Props {
   descriptionClassName?: string
   containerClassName?: string
   contentClassName?: string
+  id?: string
 }
 
 const {
@@ -16,11 +17,13 @@ const {
   descriptionClassName,
   imageUrl,
   containerClassName,
-  contentClassName
+  contentClassName,
+  id
 } = Astro.props
 ---
 
 <div
+  id={id}
   class="wrapper relative px-6 flex flex-col justify-end md:px-16"
   class:list={[
     containerClassName
