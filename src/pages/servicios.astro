@@ -30,7 +30,7 @@ const personal = [
           style="background-image:url('https://rds.org.co/apc-aa-files/205ec78c9cca6d1850bdca24e20e50bf/mina_de_oro.jpg');background-position:center;background-size:cover;"
         >
           <div class="w-full h-full py-8 flex flex-col justify-center items-center">
-            <div class="w-[90%] h-full bg-secondary/40 text-white rounded-md p-4 flex flex-col justify-center items-center">
+            <div class="w-[90%] h-full bg-primary/40 text-white rounded-md p-4 flex flex-col justify-center items-center">
               <h4 class="text-xl font-bold uppercase">
                 {p.serviceName}
               </h4>
@@ -47,6 +47,37 @@ const personal = [
     <div class="swiper-button-next"></div>
   </div>
 </Layout>
+
+<style>
+/* Swiper styles */
+.swiper-button-prev {
+  background-color: var(--white);
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  box-shadow: 0 0 16px 4px #000;
+}
+
+.swiper-button-prev::after {
+  color: var(--secondary);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.swiper-button-next {
+  background-color: var(--white);
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  box-shadow: 0 0 16px 4px #000;
+}
+
+.swiper-button-next::after {
+  color: var(--secondary);
+  font-size: 24px;
+  font-weight: bold;
+}
+</style>
 
 <script>
 import Swiper from "swiper"
