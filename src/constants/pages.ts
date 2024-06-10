@@ -54,6 +54,14 @@ export const pages: Page[] = [
     href: '/servicios'
   },
   {
+    name: 'Empleos',
+    href: '/jobs'
+  },
+  {
+    name: 'Blog',
+    href: '/blog'
+  },
+  {
     name: 'Contácto',
     href: '/contacto'
   }

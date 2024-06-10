@@ -1,0 +1,37 @@
+---
+import type { MarkdownLayoutProps } from "astro"
+import Header from "@/components/header/Header.astro"
+import Footer from "@/components/Footer.astro"
+import BaseHead from "@/components/BaseHead.astro"
+import SectionLayout from "@/layouts/SectionLayout.astro"
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  description: string
+  location: string
+  salary: string
+}>
+
+const { frontmatter: { title, description, location, salary } } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+</head>
+<body>
+  <Header />
+  <main class="px-24 text-slate-900 duration-200 pt-28">
+    <SectionLayout>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <p>{location}</p>
+      <p><strong>S/.</strong>{salary}</p>
+
+      <slot />
+    </SectionLayout>
+  </main>
+  <Footer />
+</body>
+</html>
