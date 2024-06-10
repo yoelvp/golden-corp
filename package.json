@@ -15,7 +15,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "5.0.1",
-    "rehype-add-classes": "^1.0.0",
     "swiper": "^11.1.4"
   },
   "devDependencies": {
