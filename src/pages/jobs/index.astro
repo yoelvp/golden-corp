@@ -10,7 +10,13 @@ const jobs = (await Astro.glob('@/pages/jobs/*.md'))
 ---
 
 <Layout title="Empleos" description="Descripción">
-  <SectionLayout class="py-8">
-    Empleos
+  <SectionLayout contentClassName="py-8">
+    {jobs.map((job) => (
+      <div>
+        <h3>
+          {job.frontmatter.title}
+        </h3>
+      </div>
+    ))}
   </SectionLayout>
 </Layout>
