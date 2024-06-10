@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import SectionLayout from "@/layouts/SectionLayout.astro"
+import { valueOfDate } from "@/utils/valueOfDate.ts"
+
+const jobs = (await Astro.glob('@/pages/jobs/*.md'))
+  .sort((a, b) => {
+      return valueOfDate(b.frontmatter.createdAt) - valueOfDate(a.frontmatter.createdAt)
+  })
+---
+
+<Layout title="Empleos" description="Descripción">
+  <SectionLayout class="py-8">
+    Empleos
+  </SectionLayout>
+</Layout>
