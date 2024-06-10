@@ -3,7 +3,7 @@ title: Desarrollador frontend
 description: Desarrollador frontend fullstack huevos parados
 location: Huamachuco, La Arena
 salary: 512.00
-layout: @/layouts/JobLayout.astro
+layout: ../../layouts/JobLayout.astro
 createdAt: 2023-11-27T13:00:00
 ---
 
