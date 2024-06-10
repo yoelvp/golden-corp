@@ -1,9 +1,11 @@
 :root {
+  --primary: #021c3f;
   --secondary: #df242b;
+  --white: #ffffff;
 }
 
 html {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .section-layout {
