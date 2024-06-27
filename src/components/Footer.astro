@@ -1,8 +1,6 @@
 ---
 import { pages } from "@/constants/pages"
-import { Image } from "astro:assets"
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa"
-import logo from "../assets/logo-white.svg"
 import X from "@/icons/x.astro"
 
 const currentDate = new Date()
@@ -14,7 +12,7 @@ const currentYear = currentDate.getFullYear()
     <div class="flex justify-between items-start gap-8">
       <nav class="flex justify-start items-start gap-x-16">
         <a href="/">
-          <Image src={logo} alt="logo" class="w-64 h-auto" />
+          <img src="/images/logo-white.svg" alt="logo" class="w-64 h-auto" />
         </a>
 
         <ul class="w-auto grid grid-cols-2 gap-x-6 md:gap-x-24">
