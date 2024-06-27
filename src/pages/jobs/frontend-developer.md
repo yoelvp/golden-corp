@@ -16,3 +16,5 @@ Buscamos a una persona bien pendeja para el puesto de desarrollador frontend.
 - Go
 - Rust
 - Cobol
+
+[https://yoelvalverde.netlify.app](https://yoelvalverde.netlify.app)
