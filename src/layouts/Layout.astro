@@ -6,9 +6,11 @@ import BaseHead from '@/components/BaseHead.astro';
 interface Props {
   title: string
   description: string
+  hasBackgroundHeader?: boolean
+  hasMarginTop?: boolean
 }
 
-const { title, description } = Astro.props;
+const { title, description, hasBackgroundHeader, hasMarginTop } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,9 +18,9 @@ const { title, description } = Astro.props;
 <head>
   <BaseHead title={title} description={description} />
 </head>
-<body class="w-screen h-screen">
-  <Header />
-  <main class="text-slate-900 duration-200 pt-28">
+<body class="w-screen">
+  <Header hasBackgroundHeader={hasBackgroundHeader} />
+    <main class={`text-slate-900 duration-200 ${hasBackgroundHeader && hasMarginTop ? 'mt-28' : ''}`}>
     <slot />
   </main>
   <Footer />

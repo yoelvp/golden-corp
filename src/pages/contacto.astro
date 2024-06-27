@@ -1,14 +1,16 @@
 ---
-import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import SectionLayout from '@/layouts/SectionLayout.astro'
 import FormControl from '@/components/FormControl.astro'
-import logo from '../assets/logo.svg'
 import Location from '@/icons/Location.astro'
 import Email from '@/icons/Email.astro'
 ---
 
-<Layout title="Contacto - Grupo Corporativo Golden" description="Contactate con el Grupo Corporativo Golden">
+<Layout
+  title="Contacto - Grupo Corporativo Golden"
+  description="Contactate con el Grupo Corporativo Golden"
+  hasBackgroundHeader
+>
   <SectionLayout containerClassName="my-8" contentClassName="bg-primary rounded-md px-8 text-white">
     <h2 class="text-xl lg:text-2xl uppercase font-bold text-white mb-4">
       Contáctanos
@@ -92,8 +94,8 @@ import Email from '@/icons/Email.astro'
         </div>
       </div>
     </div>
-    <Image
-      src={logo}
+    <img
+    src="/images/logo.svg"
       alt="logo grupo corporativo golden"
       class="w-auto h-64 object-cover object-center"
     />

@@ -1,4 +1,6 @@
 ---
+import Heading2 from "@/components/Heading2.astro"
+import TextQuote from "@/icons/TextQuote.astro"
 import Layout from "@/layouts/Layout.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
 import { valueOfDate } from "@/utils/valueOfDate.ts"
@@ -7,16 +9,82 @@ const jobs = (await Astro.glob('@/pages/jobs/*.md'))
   .sort((a, b) => {
       return valueOfDate(b.frontmatter.createdAt) - valueOfDate(a.frontmatter.createdAt)
   })
+const quotes: string[] = [
+  'Cultura de Innovación',
+  'Oportunidades de Desarrollo Profesional',
+  'Beneficios Competitivos',
+  'Ambiente de Trabajo Inclusivo y Colaborativo'
+]
 ---
 
-<Layout title="Empleos" description="Descripción">
-  <SectionLayout contentClassName="py-8">
-    {jobs.map((job) => (
-      <div>
-        <h3>
-          {job.frontmatter.title}
-        </h3>
+<Layout title="Empleos" description="Descripción" hasBackgroundHeader>
+  <SectionLayout>
+    <article class="mb-16">
+      <Heading2>
+        Únete a nuestro equipo
+      </Heading2>
+      <p>
+        Descubre las oportunidades de crecimiento y desarrollo que ofrecemos
+      </p>
+    </article>
+
+    <article class="mb-16">
+      <Heading2>
+        ¿Porqué trabajar con nosotros?
+      </Heading2>
+      <p>
+        Nuestra empresa se basa en la innovación, el desarrollo profesional, y un ambiente de trabajo inclusivo. Ofrecemos beneficios competitivos y oportunidades para crecer.
+      </p>
+
+      <div class="grid gap-4 mt-4 xl:grid-cols-4">
+        {quotes.map(quote => (
+          <div class="bg-zinc-400/20 rounded-lg px-4 py-2">
+            <TextQuote className="text-black" />
+            <p>
+            {quote}
+            </p>
+          </div>
+        ))}
       </div>
-    ))}
+    </article>
+
+    <article class="mb-16">
+      <Heading2>
+        Programa de practicantes
+      </Heading2>
+      <p>
+        Únete a nuestro programa de prácticas y adquiere experiencia en un entorno dinámico. Ofrecemos programas en diversas áreas.
+      </p>
+      <button>
+        Aplicar ahora
+      </button>
+    </article>
+
+    <article>
+      <Heading2>
+        Convicatorias de trabajo
+      </Heading2>
+
+      <div class="mt-4 grid grid-cols-1 gap-x-4 xl:grid-cols-2">
+        {jobs.map((job) => (
+          <a href={job.url} class="border border-zinc-400/20 px-6 py-4 rounded-xl">
+            <h3 class="text-xl font-semibold">
+              {job.frontmatter.title}
+            </h3>
+            <p class="mb-0">
+              {job.frontmatter.description}
+            </p>
+            <small>
+              {job.frontmatter.location}
+            </small>
+            <div>
+              <small>
+                Publicado hace {'12'} días
+              </small>
+            </div>
+          </a>
+        ))}
+      </div>
+    </article>
   </SectionLayout>
 </Layout>

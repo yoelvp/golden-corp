@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets"
-import historyImage from "@/assets/images/history.jpg"
 import Heading2 from "@/components/Heading2.astro"
 import HeroLayout from "@/layouts/HeroLayout.astro"
 import Layout from "@/layouts/Layout.astro"
@@ -11,13 +9,13 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
   <HeroLayout
     title="¡Bienvenidos a Grupo Corporativo Golden!"
     description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
-    imageUrl="../../src/assets/images/home.jpg"
+    imageUrl="/images/home.jpg"
     contentClassName="mb-16"
   />
 
   <SectionLayout id="resena-historica" contentClassName="flex flex-col-reverse lg:flex-row lg:gap-x-8">
-    <Image
-      src={historyImage}
+    <img
+      src="/images/history.jpg"
       alt="image"
       class="h-64 w-full rounded border border-zinc-400 object-cover object-center lg:h-auto lg:w-96"
     />
@@ -37,8 +35,8 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
     id="servicios"
     title="Servicios"
     titleClassName="uppercase"
-    description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
-    imageUrl="../../src/assets/images/home.jpg"
+    description="En Grupo Corporativo Golden, ofrecemos servicios especializados en movimiento de tierras, geosintéticos, termofusión y obras civiles, con un enfoque preferencial en proyectos mineros. Nos destacamos por nuestra experiencia y compromiso con la calidad, utilizando maquinaria de última tecnología y materiales de alta calidad para garantizar resultados óptimos y duraderos. Aunque nuestra principal especialización es el sector minero, también ejecutamos estos servicios en otros sectores con la misma dedicación y profesionalismo. Estamos comprometidos con la excelencia y la satisfacción de nuestros clientes, asegurando que cada proyecto cumpla con los más altos estándares de la industria. Contáctenos para conocer más sobre cómo podemos apoyar sus proyectos y llevarlos al siguiente nivel."
+    imageUrl="/images/home.jpg"
     containerClassName="lg:h-[800px]"
     contentClassName="mb-16"
   />
@@ -69,9 +67,9 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
       </h2>
       <figure>
         <img
-          src="https://via.placeholder.com/600/"
+          src="/images/work-with-us.jpg"
           alt="imagen trabaja con nosotros"
-          class="h-96 w-full rounded object-cover object-center shadow-lg shadow-zinc-400 md:h-72"
+          class="h-96 w-full rounded-xl object-cover object-center shadow-lg shadow-zinc-400"
         />
       </figure>
     </div>
