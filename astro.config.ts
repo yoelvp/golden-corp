@@ -4,7 +4,6 @@ import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://grupocorporativogolden.com',
-  integrations: [tailwind(), react()],
-  markdown: {}
+  site: 'https://golden.pe',
+  integrations: [tailwind(), react()]
 });
