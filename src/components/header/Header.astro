@@ -1,6 +1,6 @@
 ---
 import { pages } from "@/constants/pages"
-import HamburguerMenu from './HamburgerMenu.astro'
+import HamburguerMenu from "./HamburgerMenu.astro"
 import type { Page } from "@/types/pages"
 
 interface Props {
@@ -29,12 +29,10 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
       <img src="/images/logo-white.svg" alt="logo" class="h-20 w-auto" />
     </a>
 
-    <HamburguerMenu id="openMenu" />
-
     <nav class="hidden items-center justify-center lg:flex">
       <ul class="flex justify-center items-center menu">
         {currentPages.map((page) => (
-          <li class="list-item">
+          <li class="list-item relative">
             <a
               href={page.href}
               rel="noopener noreferrer"
@@ -42,56 +40,55 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
               class:list={[{ "active-link": page.isActive }]}
             >
               {page.name}
-          </a>
-          <ul class="submenu-wrapper bg-primary/80">
-            {page.subOptions && page.subOptions.map(subPage => (
-              <li>
-              <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
-                  {subPage.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+            </a>
+            <ul class="submenu-wrapper bg-primary/80">
+              {page.subOptions && page.subOptions.map(subPage => (
+                <li>
+                <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
+                    {subPage.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
     </nav>
 
-    <nav id="navMobile" class="open-menu hidden">
-      <div class="h-16 flex justify-end items-center">
-        <button>
-        </button>
-      </div>
-      {currentPages.map((page) => (
-        <a
-          href={page.href}
-          rel="noopener noreferrer"
-          class="px-4 uppercase text-white transition-colors"
-          class:list={[{ "active-link": page.isActive }]}
-        >
-          {page.name}
-        </a>
-      ))}
-    </nav>
+    <HamburguerMenu id="toggleMenuButton" />
   </div>
 </header>
 
+<div id="mobileMenu" class="mobile-menu">
+  <nav class="flex flex-col">
+    {currentPages.map((page) => (
+      <a
+      href={page.href}
+      rel="noopener noreferrer"
+      class="px-4 py-2 bg-secondary mb-1 uppercase text-white transition-colors"
+      class:list={[{ "active-link": page.isActive }]}
+    >
+      {page.name}
+    </a>
+    ))}
+  </nav>
+</div>
+
 <style>
-.open-menu {
+.mobile-menu {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
-  z-index: 100;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 80;
+  background: var(--primary);
+  padding-top: 128px;
 }
 
-.menu-item {
-  position: relative;
+.mobile-menu-open {
+  display: block;
 }
 
 .menu-item::after {
@@ -146,11 +143,12 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
 import { $ } from "@/lib/dom-selector";
 
 const headerElement = $("#header")
-const openMenuElement = $("#openMenu")
+const navMobileElement = $("#mobileMenu")
+const openMenuElement = $("#toggleMenuButton")
 const dataHasBackground = headerElement?.dataset.hasBackground
 
 openMenuElement?.addEventListener("click", () => {
-  console.log("Click")
+  navMobileElement?.classList.toggle("mobile-menu-open")
 })
 
 document?.addEventListener("scroll", () => {
