@@ -2,10 +2,19 @@
   --primary: #021c3f;
   --secondary: #df242b;
   --white: #ffffff;
+  --dark: #030605;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px !important;
+  font-family: "Dosis", Roboto, 'Helvetica Neue', system-ui, -apple-system, sans-serif !important;
+  color: var(--dark) !important;
 }
 
 .section-layout {

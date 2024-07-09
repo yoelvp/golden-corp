@@ -3,6 +3,8 @@ import Heading2 from "@/components/Heading2.astro"
 import HeroLayout from "@/layouts/HeroLayout.astro"
 import Layout from "@/layouts/Layout.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
+import ButtonLink from "@/components/ButtonLink.astro"
+import ArrowRight from "@/icons/ArrowRight.astro"
 ---
 
 <Layout title="Grupo Corporativo Golden" description="Grupo Corporativo Golden">
@@ -57,14 +59,20 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
   </SectionLayout>
 
   <SectionLayout>
-    <div class="grid grid-cols-1 items-center gap-x-8 py-8 md:grid-cols-2">
-      <h2
-        class="mb-4 rounded-xl bg-primary px-4 py-2 text-center text-xl font-bold uppercase text-white lg:text-2xl"
-      >
-        Trabaja con
-        <br />
-        nostros
-      </h2>
+    <div class="grid grid-cols-1 items-center gap-x-16 py-8 md:grid-cols-2">
+      <article>
+        <Heading2>
+          Trabaja con nostros
+        </Heading2>
+        <p class="mb-4">
+          En <strong class="text-primary">Grupo Corporativo Golden</strong>, nos enorgullece contar con un equipo comprometido y talentoso que comparte nuestra visión de innovación y desarrollo sostenible. Si eres una persona apasionada y buscas un entorno de trabajo dinámico y colaborativo, te invitamos a unirte a nuestra familia. En Grupo Corporativo Golden, tu crecimiento profesional es nuestra prioridad. ¡Ven y construye tu futuro con nosotros!
+        </p>
+
+        <ButtonLink href="/jobs">
+          Ver empleos
+          <ArrowRight />
+        </ButtonLink>
+      </article>
       <figure>
         <img
           src="/images/work-with-us.jpg"

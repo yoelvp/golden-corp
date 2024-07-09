@@ -10,9 +10,9 @@ interface Props {
 const { placeholder, label, htmlFor } = Astro.props
 ---
 
-<div class="w-full grid grid-cols-5">
-  <label for={htmlFor} class="col-span-1">
+<div class="w-full grid grid-cols-1 md:grid-cols-5 md:items-center">
+  <label for={htmlFor} class="text-sm text-slate-100 mb-1 md:col-span-1 md:text-base">
     {label}
   </label>
-  <Input placeholder={placeholder} className="col-span-4" />
+  <Input placeholder={placeholder} className="md:col-span-4" />
 </div>

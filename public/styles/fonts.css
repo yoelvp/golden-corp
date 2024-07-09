@@ -1,0 +1,35 @@
+/* Extra Light */
+@font-face {
+  font-family: "Dosis";
+  src: url('/fonts/DosisExtraLight.woff2') format('woff2'),
+       url('/fonts/DosisExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Light */
+@font-face {
+  font-family: "Dosis";
+  src: url('/fonts/DosisLight.woff2') format('woff2'),
+       url('/fonts/DosisLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Regular */
+@font-face {
+  font-family: "Dosis";
+  src: url('/fonts/DosisRegular.woff2') format('woff2'),
+       url('/fonts/DosisRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Dosis";
+  src: url('/fonts/DosisBold.woff2') format('woff2'),
+       url('/fonts/DosisBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
