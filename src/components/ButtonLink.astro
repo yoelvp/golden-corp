@@ -1,0 +1,61 @@
+---
+interface Props {
+  href: string
+  label?: string
+  className?: string
+}
+
+const { href, label, className = "" } = Astro.props
+---
+
+<a href={href} class:list={["button-link", className]}>
+  {label ? label : <slot />}
+</a>
+
+<style>
+.button-link {
+  display: inline-flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: color 300ms linear;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-link:hover {
+  color: var(--white);
+}
+
+.button-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary);
+  z-index: -1;
+  transition: transform 500ms;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform: scaleX(0);
+}
+
+.button-link:hover::before {
+  transform: scaleX(1.01);
+}
+
+@media screen and (min-width: 640px) {
+  .button-link {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+</style>
