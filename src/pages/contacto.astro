@@ -10,67 +10,69 @@ import Email from '@/icons/Email.astro'
   title="Contacto - Grupo Corporativo Golden"
   description="Contactate con el Grupo Corporativo Golden"
   hasBackgroundHeader
+  hasMarginTop
 >
-  <SectionLayout containerClassName="my-8" contentClassName="bg-primary rounded-md px-8 text-white">
+  <SectionLayout containerClassName="pt-16" contentClassName="bg-primary rounded-xl px-8 text-white">
     <h2 class="text-xl lg:text-2xl uppercase font-bold text-white mb-4">
       Contáctanos
     </h2>
-    <form action="" class="flex justify-center gap-8">
+    <form action="" class="flex flex-col justify-center gap-4 xl:gap-8 lg:flex-row">
       <div class="w-full flex flex-col gap-4">
         <FormControl
           label="Asunto"
           htmlFor="subject"
-          placeholder="Asunto"
+          placeholder="Ingresa el asunto"
         />
         <FormControl
           label="Nombre"
           htmlFor="name"
-          placeholder="Nombre"
+          placeholder="Ingresa tus nombres completos"
         />
         <FormControl
           label="Empresa"
           htmlFor="business"
-          placeholder="Empresa"
+          placeholder="Ingresa el nombre de empresa"
         />
         <FormControl
           label="Cargo"
           htmlFor="position"
-          placeholder="Cargo"
+          placeholder="Ingresa tu cargo"
         />
         <FormControl
           label="Email"
           htmlFor="email"
-          placeholder="Email"
+          placeholder="Ingresa tu correo electrónico"
         />
         <FormControl
           label="Teléfono"
           htmlFor="phone"
-          placeholder="Teléfono"
+          placeholder="Ingresa tu teléfono"
         />
       </div>
 
-      <div class="w-full">
-        <div>
-          <label for="message">
+      <div class="w-full flex flex-col justify-start items-center gap-8 xl:items-end">
+        <div class="w-full">
+          <label for="message" class="text-sm text-slate-100 mb-1 md:text-base">
             Mensaje
           </label>
           <textarea
             name="message"
             id="message"
-            placeholder="Mensaje"
-            class="px-4 py-1 rounded-md w-full"
+            placeholder="Ingresa tu mensaje"
+            class="px-4 py-1 rounded-xl w-full"
+            rows="5"
           ></textarea>
         </div>
-        <button class="w-full bg-secondary rounded-md px-6 py-1 uppercase mt-4">
+        <button class="w-full bg-secondary rounded-xl px-8 py-2 uppercase font-bold sm:w-auto sm:px-16 lg:w-full xl:w-auto">
           Enviar
         </button>
       </div>
     </form>
   </SectionLayout>
 
-  <SectionLayout contentClassName="flex justify-between items-start gap-x-16">
+  <SectionLayout contentClassName="flex flex-col justify-between items-start gap-x-16 gap-y-8 lg:flex-row lg:items-center">
     <div>
-      <h3 class="mb-4 uppercase font-bold text-xl lg:text-2xl">
+      <h3 class="mb-4 uppercase font-bold text-2xl lg:text-3xl">
         Grupo Corporativo Golden
       </h3>
       <div class="flex flex-wrap gap-x-8 gap-y-4">
@@ -97,7 +99,7 @@ import Email from '@/icons/Email.astro'
     <img
     src="/images/logo.svg"
       alt="logo grupo corporativo golden"
-      class="w-auto h-64 object-cover object-center"
+      class="w-auto h-48 object-cover object-center lg:h-64"
     />
   </SectionLayout>
 </Layout>
