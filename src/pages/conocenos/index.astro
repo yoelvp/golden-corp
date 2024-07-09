@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import SectionLayout from '@/layouts/SectionLayout.astro'
-import CollaboratorsScroll from '@/features/know-us/CollaboratorsScroll.astro'
+import SectionLayout from "@/layouts/SectionLayout.astro"
+import CollaboratorsScroll from "@/features/know-us/CollaboratorsScroll.astro"
 import HeroLayout from "@/layouts/HeroLayout.astro"
 import Heading2 from "@/components/Heading2.astro"
 
@@ -36,18 +36,16 @@ const corporatePhilosophy = [
 const socialProjects = [
   {
     title: 'Programa Trainee',
-    content: 'En GOLDEN, hemos implementado un Programa Trainee destinado a jóvenes talentos de la comunidad de La Arena. Este programa ofrece una formación integral en nuestras áreas de especialización, permitiendo a los participantes adquirir experiencia práctica y desarrollar sus habilidades profesionales en un entorno real de trabajo.',
-    imageUrl: 'https://www.reporteminero.cl/files/bt_5d88d42cbe19d.jpg'
+    content: 'En GOLDEN, hemos implementado un Programa Trainee destinado a jóvenes talentos de la comunidad de La Arena. Este programa ofrece una formación integral en nuestras áreas de especialización, permitiendo a los participantes adquirir experiencia práctica y desarrollar sus habilidades profesionales en un entorno real de trabajo.'
   },
   {
     title: 'Prácticas Preprofesionales para Hijos de Comuneros',
-    content: 'Ofrecemos prácticas preprofesionales a los hijos de nuestros socios comuneros, brindándoles la oportunidad de aplicar sus conocimientos académicos en un contexto profesional. Este programa está diseñado para facilitar la transición del ámbito educativo al laboral, fomentando el desarrollo de competencias clave y fortaleciendo el vínculo con nuestra comunidad.',
-    imageUrl: 'https://www.reporteminero.cl/files/bt_5d88d42cbe19d.jpg'
+    content: 'Ofrecemos prácticas preprofesionales a los hijos de nuestros socios comuneros, brindándoles la oportunidad de aplicar sus conocimientos académicos en un contexto profesional. Este programa está diseñado para facilitar la transición del ámbito educativo al laboral, fomentando el desarrollo de competencias clave y fortaleciendo el vínculo con nuestra comunidad.'
   },
   {
     title: 'Capacitación sobre Emprendimiento',
     content: 'Nos comprometemos a empoderar a los comuneros locales a través de programas de capacitación en emprendimiento. Estas capacitaciones están orientadas a proporcionar herramientas y conocimientos necesarios para iniciar y gestionar negocios exitosos, promoviendo así el desarrollo económico y la autosuficiencia dentro de la comunidad de La Arena.',
-    imageUrl: 'https://www.reporteminero.cl/files/bt_5d88d42cbe19d.jpg'
+    className: 'sm:col-span-2 md:col-span-1'
   }
 ]
 ---
@@ -86,11 +84,11 @@ const socialProjects = [
 
   <SectionLayout
     id="filosofia-corporativa"
-    contentClassName="py-8 grid lg:grid-cols-3 gap-x-4"
+    contentClassName="py-8 grid lg:grid-cols-3 gap-y-8 gap-x-4"
   >
     <h2 class="text-2xl font-bold uppercase pb-4 lg:col-span-2 lg:text-4xl">
       Filosofía
-      <br />
+      <br class="hidden lg:block" />
       corporativa
     </h2>
     {corporatePhilosophy.map(cp => (
@@ -137,18 +135,16 @@ const socialProjects = [
       Proyectos sociales
     </Heading2>
 
-    <div class="grid grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
       {socialProjects.map(social => (
-        <div class="card-bg min-h-[320px] relative bg-zinc-100 rounded-xl overflow-hidden">
-          <article class="w-full h-full absolute top-0 left-0 px-4 py-6 text-white z-40">
-            <h3 class="text-xl text-center font-bold mb-4">
-              {social.title}
-            </h3>
-            <p class="text-center">
-              {social.content}
-            </p>
-          </article>
-        </div>
+        <article class={`card rounded-xl py-8 px-4 ${social.className ?? ''}`}>
+          <h3 class="text-xl text-center font-bold mb-4 text-primary">
+            {social.title}
+          </h3>
+          <p class="text-center text-zinc-600">
+            {social.content}
+          </p>
+        </article>
       ))}
     </div>
   </SectionLayout>
@@ -157,9 +153,12 @@ const socialProjects = [
 </Layout>
 
 <style>
-.card-bg {
-  background: rgb(2,28,63);
-  background: linear-gradient(180deg, rgba(2,28,63,1) 0%, rgba(223,36,43,1) 100%); 
-  opacity: 0.9;
+.card {
+  border-top: 2px solid var(--primary);
+  box-shadow: 0 8px 16px 2px #d4d4d4;
+}
+
+.card:nth-child(even) {
+  border-top-color: var(--secondary);
 }
 </style>
