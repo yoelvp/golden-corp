@@ -1,0 +1,17 @@
+---
+interface Props {
+  quantity: number
+  label: string
+}
+
+const { quantity, label } = Astro.props
+---
+
+<div class="flex flex-col gap-y-2 justify-center items-center text-white">
+  <span class="text-4xl font-bold tabular-nums xm:text-6xl">
+    {quantity}
+  </span>
+  <h5 class="text-sm uppercase text-center">
+    {label}
+  </h5>
+</div>
