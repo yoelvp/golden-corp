@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
 import ButtonLink from "@/components/ButtonLink.astro"
 import ArrowRight from "@/icons/ArrowRight.astro"
+import StatisticCard from "@/features/home/StatisticCard.astro"
 ---
 
 <Layout title="Grupo Corporativo Golden" description="Grupo Corporativo Golden">
@@ -56,11 +57,17 @@ import ArrowRight from "@/icons/ArrowRight.astro"
     <Heading2 className="text-white text-center">
       Datos estadísticos de logros
     </Heading2>
+
+    <div class="mt-16 flex flex-wrap justify-center items-center gap-x-8 gap-y-12 md:gap-x-24">
+      <StatisticCard quantity={80} label="Proyectos finalizados" />
+      <StatisticCard quantity={120} label="Proyectos sociales" />
+      <StatisticCard quantity={12} label="Empleos abiertos" />
+    </div>
   </SectionLayout>
 
   <SectionLayout>
     <div class="grid grid-cols-1 items-center gap-x-16 py-8 md:grid-cols-2">
-      <article>
+      <article class="mb-8 md:mb-0">
         <Heading2>
           Trabaja con nostros
         </Heading2>
@@ -68,7 +75,7 @@ import ArrowRight from "@/icons/ArrowRight.astro"
           En <strong class="text-primary">Grupo Corporativo Golden</strong>, nos enorgullece contar con un equipo comprometido y talentoso que comparte nuestra visión de innovación y desarrollo sostenible. Si eres una persona apasionada y buscas un entorno de trabajo dinámico y colaborativo, te invitamos a unirte a nuestra familia. En Grupo Corporativo Golden, tu crecimiento profesional es nuestra prioridad. ¡Ven y construye tu futuro con nosotros!
         </p>
 
-        <ButtonLink href="/jobs">
+        <ButtonLink href="/jobs" className="w-full md:w-auto">
           Ver empleos
           <ArrowRight />
         </ButtonLink>
