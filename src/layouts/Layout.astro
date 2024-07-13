@@ -20,7 +20,7 @@ const { title, description, hasBackgroundHeader, hasMarginTop } = Astro.props;
 </head>
 <body class="w-screen">
   <Header hasBackgroundHeader={hasBackgroundHeader} />
-  <main class={`text-slate-900 duration-200 ${hasBackgroundHeader && hasMarginTop ? 'mt-28' : ''}`}>
+  <main class={`text-dark duration-200 ${hasBackgroundHeader && hasMarginTop ? 'mt-28' : ''}`}>
     <slot />
   </main>
   <Footer />
