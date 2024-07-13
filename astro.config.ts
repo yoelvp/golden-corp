@@ -1,9 +1,17 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://golden.pe',
-  integrations: [tailwind(), react()]
+  build: {
+    inlineStylesheets: 'always'
+  },
+  compressHTML: true,
+  prefetch: true,
+  devToolbar: {
+    enabled: false
+  },
+  integrations: [tailwind()],
+  output: 'server'
 });
