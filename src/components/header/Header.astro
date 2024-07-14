@@ -5,10 +5,11 @@ import type { Page } from "@/types/pages"
 
 interface Props {
   hasBackgroundHeader?: boolean
+  isPageNotFound?: boolean
 }
 
 const { pathname } = Astro.url
-const { hasBackgroundHeader } = Astro.props
+const { hasBackgroundHeader, isPageNotFound } = Astro.props
 const normalizedPathName =
   pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
 
@@ -24,10 +25,7 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
   class="header fixed top-0 left-0 z-[100] w-full h-28 flex items-center transition-[background] duration-300"
   class:list={[
     {
-      'bg-white text-primary': hasBackgroundHeader
-    },
-    {
-      "text-white": !!hasBackgroundHeader
+      'bg-white text-primary border-b border-b-primary/40': hasBackgroundHeader
     }
   ]}
   data-has-background={hasBackground}
@@ -37,35 +35,37 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
       <img src="/images/logo.svg" alt="logo" class="h-20 w-auto" />
     </a>
 
-    <nav class="hidden items-center justify-center lg:flex">
-      <ul id="menuItems" class="flex justify-center items-center menu">
-        {currentPages.map((page) => (
-          <li class="list-item relative">
-            <a
-              href={page.href}
-              rel="noopener noreferrer"
-              class="text-sm px-4 uppercase menu-item"
-              class:list={[{ "active-link": page.isActive }]}
-            >
-              {page.name}
-            </a>
-            {page.subOptions && (
-              <div class="submenu-wrapper py-4">
-                <ul class="rounded-xl overflow-hidden bg-primary/80">
-                  {page.subOptions.map(subPage => (
-                    <li>
-                      <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
-                        {subPage.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    {!isPageNotFound && (
+      <nav class="hidden items-center justify-center lg:flex">
+        <ul id="menuItems" class="flex justify-center items-center menu">
+          {currentPages.map((page) => (
+            <li class="list-item relative">
+              <a
+                href={page.href}
+                rel="noopener noreferrer"
+                class="text-sm px-4 uppercase menu-item"
+                class:list={[{ "active-link": page.isActive }]}
+              >
+                {page.name}
+              </a>
+              {page.subOptions && (
+                <div class="submenu-wrapper py-4">
+                  <ul class="rounded-xl overflow-hidden bg-primary/80">
+                    {page.subOptions.map(subPage => (
+                      <li>
+                        <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
+                          {subPage.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
 
     <HamburguerMenu id="toggleMenuButton" />
   </div>
