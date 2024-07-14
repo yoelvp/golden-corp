@@ -1,4 +1,6 @@
 ---
+import Heading from '@/components/Heading.astro'
+
 interface Props {
   title: string
   description: string
@@ -31,9 +33,9 @@ const {
   style={`background-image:url(${imageUrl});`}
 >
   <div class="section-layout z-10" class:list={[ contentClassName ]}>
-    <h1 class="text-xl text-white mb-2 font-bold lg:text-2xl" class:list={[ titleClassName ]}>
+    <Heading as="h1" class="text-white mb-4" class:list={[titleClassName]}>
       {title}
-    </h1>
+    </Heading>
     <p class="text-white text-lg lg:text-xl" class:list={[ descriptionClassName ]}>
       {description}
     </p>
