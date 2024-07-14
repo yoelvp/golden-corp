@@ -49,6 +49,10 @@ const personal = [
 </Layout>
 
 <style>
+.services-scroll {
+  height: calc(100vh - 126px);
+}
+
 /* Swiper styles */
 .swiper-button-prev {
   background-color: var(--white);
@@ -89,6 +93,7 @@ import 'swiper/css/pagination'
 Swiper.use([ Navigation, Pagination ])
 new Swiper(".swiper", {
   loop: true,
+  autoplay: true,
   pagination: {
     el: '.swiper-pagination',
   },

@@ -22,10 +22,6 @@ html {
   margin: auto;
 }
 
-.services-scroll {
-  height: calc(100vh - 232px - 80px);
-}
-
 @media screen and (min-width: 640px) {
   .section-layout {
     width: 85%;
