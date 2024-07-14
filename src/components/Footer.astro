@@ -1,14 +1,16 @@
 ---
 import { pages } from "@/constants/pages"
+import SocialNetworkLink from "@/components/SocialNetworkLink.astro"
 import X from "@/icons/x.astro"
 import Facebook from "@/icons/facebook.astro"
 import Youtube from "@/icons/youtube.astro"
+import Instagram from "@/icons/instagram.astro"
 
 const currentDate = new Date()
 const currentYear = currentDate.getFullYear()
 ---
 
-<footer class="py-16 flex items-center">
+<footer class="py-16 flex items-center border-t border-t-primary">
   <div class="section-layout flex flex-col justify-center gap-y-8">
     <div class="flex flex-col justify-between items-center gap-16 lg:flex-row">
       <nav class="flex flex-col gap-16 md:flex-row md:items-center">
@@ -29,35 +31,31 @@ const currentYear = currentDate.getFullYear()
 
       <ul class="flex justify-center items-center gap-4">
         <li>
-          <a
-            href="https://www.facebook.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <Facebook size="18" />
-          </a>
+          <SocialNetworkLink href="https://www.facebook.com/golden-corp">
+            <Facebook size="24" />
+          </SocialNetworkLink>
         </li>
         <li>
-          <a
-            href="https://www.x.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <X size="22" />
-          </a>
+          <SocialNetworkLink href="https://www.instagram.com/golden-corp">
+            <Instagram size="24" />
+          </SocialNetworkLink>
         </li>
         <li>
-          <a
-            href="https://www.x.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <Youtube size="22" />
-          </a>
+          <SocialNetworkLink href="https://www.x.com/golden-corp">
+            <X size="24" />
+          </SocialNetworkLink>
+        </li>
+        <li>
+          <SocialNetworkLink href="https://www.youtube.com/golden-corp">
+            <Youtube size="24" />
+          </SocialNetworkLink>
         </li>
       </ul>
     </div>
 
     <div class="flex items-center justify-center gap-8 lg:justify-end">
       <p class="text-xs text-zinc-400">
-        &copy; {currentYear} Designed by Grow-Marketing y Publicidad
+        &copy; {currentYear} Designed by <strong>Grow</strong> - Marketing y Publicidad
       </p>
     </div>
   </div>
