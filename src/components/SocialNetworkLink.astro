@@ -1,0 +1,30 @@
+---
+interface Props {
+  href: string
+  className?: string
+}
+
+const { href, className = "" } = Astro.props
+---
+
+<a
+  href={href}
+  rel="noopener noreferer"
+  target="_blank"
+  class="social inline-block text-primary"
+  class:list={className}
+>
+  <slot />
+</a>
+
+<style>
+.social {
+  transition: transform 250ms ease-out;
+}
+
+.social:hover {
+  opacity: 0.7;
+  transform: scale(1.5, 1.5);
+  transform-origin: center center;
+}
+</style>
