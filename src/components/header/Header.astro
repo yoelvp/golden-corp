@@ -5,10 +5,11 @@ import type { Page } from "@/types/pages"
 
 interface Props {
   hasBackgroundHeader?: boolean
+  isPageNotFound?: boolean
 }
 
 const { pathname } = Astro.url
-const { hasBackgroundHeader } = Astro.props
+const { hasBackgroundHeader, isPageNotFound } = Astro.props
 const normalizedPathName =
   pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
 
@@ -21,7 +22,12 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
 
 <header
   id="header"
-  class={`header fixed top-0 left-0 z-[100] ${hasBackgroundHeader ? 'bg-white text-primary' : ''} text-white w-full h-28 border-b border-b-primary/40 flex items-center transition-[background] duration-300`}
+  class="header fixed top-0 left-0 z-[100] w-full h-28 flex items-center transition-[background] duration-300"
+  class:list={[
+    {
+      'bg-white text-primary border-b border-b-primary/40': hasBackgroundHeader
+    }
+  ]}
   data-has-background={hasBackground}
 >
   <div class="section-layout flex justify-between items-center">
@@ -29,48 +35,58 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
       <img src="/images/logo.svg" alt="logo" class="h-20 w-auto" />
     </a>
 
-    <nav class="hidden items-center justify-center lg:flex">
-      <ul class="flex justify-center items-center menu">
-        {currentPages.map((page) => (
-          <li class="list-item relative">
-            <a
-              href={page.href}
-              rel="noopener noreferrer"
-              class="text-sm px-4 uppercase menu-item"
-              class:list={[{ "active-link": page.isActive }]}
-            >
-              {page.name}
-            </a>
-            <ul class="submenu-wrapper bg-primary/80">
-              {page.subOptions && page.subOptions.map(subPage => (
-                <li>
-                <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
-                    {subPage.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    {!isPageNotFound && (
+      <nav class="hidden items-center justify-center lg:flex">
+        <ul id="menuItems" class="flex justify-center items-center menu">
+          {currentPages.map((page) => (
+            <li class="list-item relative">
+              <a
+                href={page.href}
+                rel="noopener noreferrer"
+                class="text-sm px-4 uppercase menu-item"
+                class:list={[{ "active-link": page.isActive }]}
+              >
+                {page.name}
+              </a>
+              {page.subOptions && (
+                <div class="submenu-wrapper py-4">
+                  <ul class="rounded-xl overflow-hidden bg-primary/80">
+                    {page.subOptions.map(subPage => (
+                      <li>
+                        <a href={subPage.href} class="w-full inline-block px-4 py-1 text-white hover:bg-secondary">
+                          {subPage.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
 
     <HamburguerMenu id="toggleMenuButton" />
   </div>
 </header>
 
-<div id="mobileMenu" class="mobile-menu">
+<div id="mobileMenu" class="mobile-menu bg-white">
   <nav class="flex flex-col">
-    {currentPages.map((page) => (
-      <a
-      href={page.href}
-      rel="noopener noreferrer"
-      class="px-4 py-2 bg-secondary mb-1 uppercase text-white transition-colors"
-      class:list={[{ "active-link": page.isActive }]}
-    >
-      {page.name}
-    </a>
-    ))}
+    <ul>
+      {currentPages.map((page) => (
+        <li>
+          <a
+            href={page.href}
+            rel="noopener noreferrer"
+            class="w-full inline-block px-4 py-2 bg-secondary mb-1 uppercase text-white transition-colors"
+            class:list={[{ "active-link": page.isActive }]}
+          >
+            {page.name}
+          </a>
+        </li>
+      ))}
+    </ul>
   </nav>
 </div>
 
@@ -83,7 +99,6 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
   width: 100%;
   height: 100%;
   z-index: 80;
-  background: var(--primary);
   padding-top: 128px;
 }
 
@@ -131,7 +146,7 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
 .submenu-wrapper {
   display: none;
   position: absolute;
-  width: 380px;
+  width: 520px;
 }
 
 .menu li:hover .submenu-wrapper {
@@ -142,13 +157,14 @@ const hasBackground = hasBackgroundHeader ? 'yes' : 'no'
 <script>
 import { $ } from "@/lib/dom-selector";
 
-const headerElement = $("#header")
-const navMobileElement = $("#mobileMenu")
+const $header = $("#header")
+const $mobileNavigation = $("#mobileMenu")
+const $menuItems = $("#menuItems")
 const openMenuElement = $("#toggleMenuButton")
-const dataHasBackground = headerElement?.dataset.hasBackground
+const dataHasBackground = $header?.dataset.hasBackground
 
 openMenuElement?.addEventListener("click", () => {
-  navMobileElement?.classList.toggle("mobile-menu-open")
+  $mobileNavigation?.classList.toggle("mobile-menu-open")
 })
 
 document?.addEventListener("scroll", () => {
@@ -157,10 +173,11 @@ document?.addEventListener("scroll", () => {
 
   if (dataHasBackground === 'no') {
     if (scrollPosition > heightHero) {
-      /* headerElement?.classList.remove("text-white") */
-      headerElement?.classList.add("bg-white", "text-primary")
+      $header?.classList.add("bg-white", "border-b", "border-b-primary/40")
+      $menuItems?.classList.add("text-primary")
     } else {
-      headerElement?.classList.remove("bg-white")
+      $header?.classList.remove("bg-white", "border-b", "border-b-primary/40")
+      $menuItems?.classList.remove("text-primary")
     }
   }
 })

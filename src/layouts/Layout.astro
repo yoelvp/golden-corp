@@ -8,9 +8,10 @@ interface Props {
   description: string
   hasBackgroundHeader?: boolean
   hasMarginTop?: boolean
+  isPageNotFound?: boolean
 }
 
-const { title, description, hasBackgroundHeader, hasMarginTop } = Astro.props;
+const { title, description, hasBackgroundHeader, hasMarginTop, isPageNotFound } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -19,10 +20,12 @@ const { title, description, hasBackgroundHeader, hasMarginTop } = Astro.props;
   <BaseHead title={title} description={description} />
 </head>
 <body class="w-screen">
-  <Header hasBackgroundHeader={hasBackgroundHeader} />
-  <main class={`text-slate-900 duration-200 ${hasBackgroundHeader && hasMarginTop ? 'mt-28' : ''}`}>
+  <Header hasBackgroundHeader={hasBackgroundHeader} isPageNotFound={isPageNotFound} />
+  <main class={`text-dark duration-200 ${hasBackgroundHeader && hasMarginTop ? 'mt-28' : ''}`}>
     <slot />
   </main>
-  <Footer />
+  {!isPageNotFound && (
+    <Footer />
+  )}
 </body>
 </html>

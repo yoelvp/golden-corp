@@ -1,6 +1,6 @@
 ---
 import SectionLayout from "@/layouts/SectionLayout.astro"
-import Heading2 from "@/components/Heading2.astro"
+import Heading from "@/components/Heading.astro"
 
 const personal = [
   {
@@ -28,12 +28,12 @@ const personal = [
 
 <SectionLayout
   containerClassName="bg-primary border-b border-b-slate-600"
-  contentClassName="flex flex-col gap-y-32"
+  contentClassName="flex flex-col gap-y-32 lg:gap-y-48"
 >
   <div id="directorio">
-    <Heading2 className="text-white text-center mb-8">
+    <Heading as="h2" className="text-white text-center mb-16">
       Nuestro directorio
-    </Heading2>
+    </Heading>
     <div class="swiper directory-swiper">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
@@ -64,9 +64,9 @@ const personal = [
   </div>
 
   <div id="equipo-de-trabajo">
-    <Heading2 className="text-white text-center mb-8">
+    <Heading as="h2" className="text-white text-center mb-16">
       Nuestro equipo de trabajo
-    </Heading2>
+    </Heading>
     <div class="swiper work-team-swiper">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">

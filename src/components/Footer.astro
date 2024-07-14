@@ -1,18 +1,21 @@
 ---
 import { pages } from "@/constants/pages"
-import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa"
+import SocialNetworkLink from "@/components/SocialNetworkLink.astro"
 import X from "@/icons/x.astro"
+import Facebook from "@/icons/facebook.astro"
+import Youtube from "@/icons/youtube.astro"
+import Instagram from "@/icons/instagram.astro"
 
 const currentDate = new Date()
 const currentYear = currentDate.getFullYear()
 ---
 
-<footer class="bg-primary py-16 flex items-center">
-  <div class="section-layout text-white flex flex-col justify-center gap-y-8">
+<footer class="py-16 flex items-center border-t border-t-primary">
+  <div class="section-layout flex flex-col justify-center gap-y-8">
     <div class="flex flex-col justify-between items-center gap-16 lg:flex-row">
       <nav class="flex flex-col gap-16 md:flex-row md:items-center">
         <a href="/">
-          <img src="/images/logo-white.svg" alt="logo" class="w-48 h-auto lg:w-64" />
+          <img src="/images/logo.svg" alt="logo" class="w-48 h-auto lg:w-64" />
         </a>
 
         <ul class="w-auto grid grid-cols-2 gap-x-6 md:gap-x-24">
@@ -26,37 +29,33 @@ const currentYear = currentDate.getFullYear()
         </ul>
       </nav>
 
-      <ul class="w-full flex justify-center items-center gap-4">
+      <ul class="flex justify-center items-center gap-4">
         <li>
-          <a
-            href="https://www.facebook.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <FaFacebookSquare size="22" />
-          </a>
+          <SocialNetworkLink href="https://www.facebook.com/golden-corp">
+            <Facebook size="24" />
+          </SocialNetworkLink>
         </li>
         <li>
-          <a
-            href="https://www.x.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <X size="22" />
-          </a>
+          <SocialNetworkLink href="https://www.instagram.com/golden-corp">
+            <Instagram size="24" />
+          </SocialNetworkLink>
         </li>
         <li>
-          <a
-            href="https://www.x.com/golden-corp"
-            class="w-8 h-8 bg-white text-primary rounded-full flex justify-center items-center transition-[background] hover:bg-secondary hover:text-white"
-          >
-            <FaTwitterSquare size="22" />
-          </a>
+          <SocialNetworkLink href="https://www.x.com/golden-corp">
+            <X size="24" />
+          </SocialNetworkLink>
+        </li>
+        <li>
+          <SocialNetworkLink href="https://www.youtube.com/golden-corp">
+            <Youtube size="24" />
+          </SocialNetworkLink>
         </li>
       </ul>
     </div>
 
     <div class="flex items-center justify-center gap-8 lg:justify-end">
-      <p class="text-xs text-zinc-200">
-        &copy; {currentYear} Designed by Grow-Marketing y Publicidad
+      <p class="text-xs text-zinc-400">
+        &copy; {currentYear} Designed by <strong>Grow</strong> - Marketing y Publicidad
       </p>
     </div>
   </div>

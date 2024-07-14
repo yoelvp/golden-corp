@@ -1,0 +1,67 @@
+---
+interface Props {
+  quantity: number
+  label: string
+}
+
+const { quantity, label } = Astro.props
+---
+
+<div class="flex flex-col gap-y-2 justify-center items-center text-white">
+  <span
+    id="counter"
+    class="text-4xl font-bold tabular-nums xm:text-6xl"
+    data-quantity={quantity}
+  >
+    00
+  </span>
+  <h5 class="text-sm uppercase text-center">
+    {label}
+  </h5>
+</div>
+
+<script>
+import { $, $$ } from '@/lib/dom-selector.ts'
+
+const $parentNode = $("#statisticParentCards")!
+const $quantities = $$('[data-quantity]')
+const INITIAL_DATA = {
+  START_NUMBER: 0,
+  DURATION: 2000
+} as const
+
+function animateCounter(element: HTMLSpanElement, quantity: number) {
+  let startTime: number | null = null
+
+  function step(timestamp: number) {
+    if (!startTime) startTime = timestamp
+
+    const progress = Math.min((timestamp - startTime) / INITIAL_DATA.DURATION, 1)
+    element.textContent = Math.floor(progress * (quantity - INITIAL_DATA.START_NUMBER) + INITIAL_DATA.START_NUMBER).toString()
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step)
+    } else {
+      element.textContent = quantity.toString()
+    }
+  }
+
+  window.requestAnimationFrame(step)
+}
+
+const observer = new IntersectionObserver((entries) => {
+  const $parentCards = entries[0].target
+  const entry = entries[0]
+
+  if (entry.isIntersecting) {
+    $quantities.forEach(element => {
+      const quantityNumber: number = parseInt(element.dataset.quantity ?? '0')
+      animateCounter(element, quantityNumber)
+      observer.unobserve($parentCards)
+    })
+  }
+}, {
+    threshold: 0.3
+})
+observer.observe($parentNode)
+</script>
