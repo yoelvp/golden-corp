@@ -1,5 +1,5 @@
 ---
-import Heading2 from "@/components/Heading2.astro"
+import Heading from "@/components/Heading.astro"
 import HeroLayout from "@/layouts/HeroLayout.astro"
 import Layout from "@/layouts/Layout.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
@@ -8,7 +8,10 @@ import ArrowRight from "@/icons/ArrowRight.astro"
 import StatisticCard from "@/features/home/StatisticCard.astro"
 ---
 
-<Layout title="Grupo Corporativo Golden" description="Grupo Corporativo Golden">
+<Layout
+  title="Grupo Corporativo Golden"
+  description="Grupo Corporativo Golden"
+>
   <HeroLayout
     title="¡Bienvenidos a Grupo Corporativo Golden!"
     description="Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar juntos para alcanzar tus metas. ¡Bienvenidos a la excelencia en construcción!"
@@ -23,7 +26,9 @@ import StatisticCard from "@/features/home/StatisticCard.astro"
       class="h-64 w-full rounded border border-zinc-400 object-cover object-center lg:h-auto lg:w-96"
     />
     <div class="mb-4">
-      <Heading2> Pequeña reseña histórica </Heading2>
+      <Heading as="h2">
+        Pequeña reseña histórica
+      </Heading>
       <p>
         El Grupo Corporativo Golden fue fundado en 0000 con el objetivo de aprovechar los recursos minerales de La Arena, comenzando con la extracción de oro en La Arena. En la década de 0000.
       </p>
@@ -45,7 +50,9 @@ import StatisticCard from "@/features/home/StatisticCard.astro"
   />
 
   <SectionLayout id="proyectos">
-    <Heading2> Proyectos </Heading2>
+    <Heading as="h2">
+      Proyectos
+    </Heading>
     <p>
       Somos tu socio confiable en construcción. Desde edificaciones sólidas hasta relaciones
       duraderas, estamos aquí para hacer realidad tus proyectos. Descubre cómo podemos trabajar
@@ -54,9 +61,9 @@ import StatisticCard from "@/features/home/StatisticCard.astro"
   </SectionLayout>
 
   <SectionLayout containerClassName="bg-primary" id="logros">
-    <Heading2 className="text-white text-center">
+    <Heading as="h2" className="text-white text-center">
       Datos estadísticos de logros
-    </Heading2>
+    </Heading>
 
     <div id="statisticParentCards" class="mt-16 flex flex-wrap justify-center items-center gap-x-8 gap-y-12 md:gap-x-24">
       <StatisticCard quantity={80} label="Proyectos finalizados" />
@@ -68,9 +75,9 @@ import StatisticCard from "@/features/home/StatisticCard.astro"
   <SectionLayout>
     <div class="grid grid-cols-1 items-center gap-x-16 py-8 md:grid-cols-2">
       <article class="mb-8 md:mb-0">
-        <Heading2>
+        <Heading as="h2">
           Trabaja con nostros
-        </Heading2>
+        </Heading>
         <p class="mb-4">
           En <strong class="text-primary">Grupo Corporativo Golden</strong>, nos enorgullece contar con un equipo comprometido y talentoso que comparte nuestra visión de innovación y desarrollo sostenible. Si eres una persona apasionada y buscas un entorno de trabajo dinámico y colaborativo, te invitamos a unirte a nuestra familia. En Grupo Corporativo Golden, tu crecimiento profesional es nuestra prioridad. ¡Ven y construye tu futuro con nosotros!
         </p>
